@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/vue"></script>
+    <script
+        src="http://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Road Trip</title>
+</head>
+<body>
+    <div id="app">
+        <h1 style="text-decoration: underline">Road Trip</h1>
+        <br>
+        <!--<available-items v-for="item in items"
+            v-if="!item.deleted"
+            v-bind:name="item.itemName"
+            v-bind:pic="item.pic"
+        ></available-items>-->
+
+<div id='images'>
+            <span v-on:click="addRaft"><img src='./roadtrip/poopraft.jpg' class='itemimage'></span>
+            <span v-on:click="addCat"><img src='./roadtrip/cat.jpg' class='itemimage'></span>
+            <span v-on:click="addGuitar"><img src='./roadtrip/brokenguitar.jpg' class='itemimage'></span>
+            <span v-on:click="addShoe"><img src='./roadtrip/snowshoe.jpg' class='itemimage'></span>
+            <br>
+            <span v-on:click="addBindle"><img src='./roadtrip/bindlestick.jpg' class='itemimage'></span>
+            <span v-on:click="addCooler"><img src='./roadtrip/coolerofbeer.jpg' class='itemimage'></span>
+            <span v-on:click="addWeed"><img src='./roadtrip/weed.jpeg' class='itemimage'></span>
+            <span v-on:click="addSandwich"><img src='./roadtrip/sandwich.jpeg' class='itemimage'></span>
+        </div>
+
+        <br>
+        <div>
+            <h2 style="text-decoration: underline">Current Balances</h2>
+            Remaining Budget: <p v-text="budget"></p>
+            Remaining Weight: <p v-text="maxWeight"></p>
+            <h2 style="text-decoration: underline">Current Items</h2>
+           
+            <current-items v-for="item in currentItems"
+                v-if="!item.deleted"
+                v-bind:name="item.itemName"
+                v-bind:count="item.itemCount"
+                v-on:deleted="ridder"
+            ></current-items>
+                <!-- here we are just displaying the name and not worrying about duplicates,
+                but we will be changing the colors of over spent or overweighted iutems, respectively. -->
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
